@@ -36,13 +36,27 @@ pygame.display.set_caption(WINDOW_TITLE)
 
 # Loads the background image and
 # Adds the background texture to our game window
-background = pygame.image.load(BACKGROUND_IMG).convert()
+bg = pygame.image.load("assets/background.jpg").convert()
+background = pygame.transform.scale(bg, (WINDOW_SIZE, WINDOW_SIZE))
 gameWindow.blit(background, (0, 0))
+
+pygame.display.flip()
 
 # Used to verify that the game is not over for the game loop
 IS_GAME_OVER = False
 
+maze = Maze('maze.txt')
+maze.generate()
+maze.display(gameWindow)
+
+pygame.display.flip()
+
  # Game loop
 while not IS_GAME_OVER:
     # Refresh rate limitation
-    pygame.time.Clock().tick(30)   
+    pygame.time.Clock().tick(30)
+      
+    
+    for event in pygame.event.get():
+        pass
+         

@@ -3,6 +3,8 @@ This module is responsible for the class object that will
 be inherited by Player, Guardian and Items classes
 """
 
+import pygame
+
 
 class GameObject:
     """
