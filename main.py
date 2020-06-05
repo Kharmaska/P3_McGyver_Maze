@@ -55,7 +55,7 @@ pygame.display.flip()
 while not IS_GAME_OVER:
     # Refresh rate limitation
     pygame.time.Clock().tick(30)
-      
+    
     
     for event in pygame.event.get():
         pass
