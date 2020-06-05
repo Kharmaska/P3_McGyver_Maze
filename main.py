@@ -45,9 +45,24 @@ pygame.display.flip()
 # Used to verify that the game is not over for the game loop
 IS_GAME_OVER = False
 
+# Maze generation
 maze = Maze('maze.txt')
 maze.generate()
 maze.display(gameWindow)
+
+# Items generation on the board
+# 1. Ether
+ether = GameObject(BOTTLE_IMG, maze, 'b', 'bottle')
+ether.randomposition('b')
+ether.draw(gameWindow, BOTTLE_IMG)
+# 2. Needle
+needle = GameObject(NEEDLE_IMG, maze, 'n', 'bottle')
+needle.randomposition('n')
+needle.draw(gameWindow, NEEDLE_IMG)
+# 3. Tube
+tube = GameObject(TUBE_IMG, maze, 't', 'bottle')
+tube.randomposition('t')
+tube.draw(gameWindow, TUBE_IMG)
 
 pygame.display.flip()
 
