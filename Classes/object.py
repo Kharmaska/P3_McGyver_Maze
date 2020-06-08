@@ -24,7 +24,6 @@ class GameObject:
         self.x_pos = self.square_x * SPRITES_SIZE
         self.y_pos = self.square_y * SPRITES_SIZE
         self.itemname = itemname
-    
     def randomposition(self, identifier):
         """ gives a random position on the map to the item created"""
         # Initialize a counter to make sure we only generate one of each item
@@ -44,7 +43,6 @@ class GameObject:
                 count += 1
                 break
         return self.square_x, self.square_y
-    
     def draw(self, background, image_path):
         """ Mehtod responsible to draw the game object on top of the game background"""
         self.itemname = pygame.image.load(image_path).convert_alpha()

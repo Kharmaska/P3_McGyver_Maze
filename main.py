@@ -18,6 +18,7 @@ from pygame.locals import *
 from constants import *
 from classes.object import GameObject
 from classes.maze import Maze
+from classes.player import Player
 
 
 # We initialize the pygame module
@@ -54,15 +55,19 @@ maze.display(gameWindow)
 # 1. Ether
 ether = GameObject(BOTTLE_IMG, maze, 'b', 'bottle')
 ether.randomposition('b')
-ether.draw(gameWindow, BOTTLE_IMG)
+
 # 2. Needle
 needle = GameObject(NEEDLE_IMG, maze, 'n', 'bottle')
 needle.randomposition('n')
-needle.draw(gameWindow, NEEDLE_IMG)
+
 # 3. Tube
 tube = GameObject(TUBE_IMG, maze, 't', 'bottle')
 tube.randomposition('t')
-tube.draw(gameWindow, TUBE_IMG)
+
+
+# creates an instance of Player as MacGyver (mcgv)
+mcgv = Player(0, maze)
+mcgv.draw(gameWindow, MACGYVER_IMG)
 
 pygame.display.flip()
 
@@ -70,8 +75,39 @@ pygame.display.flip()
 while not IS_GAME_OVER:
     # Refresh rate limitation
     pygame.time.Clock().tick(30)
-    
-    
+
+
     for event in pygame.event.get():
-        pass
+        # If the user quits, passes the IS_GAME_OVER to True
+        if event.type == QUIT:
+            IS_GAME_OVER = True
+        elif event.type == KEYDOWN:
+            if event.key == K_ESCAPE:
+                IS_GAME_OVER = True
+
+            elif event.key == K_RIGHT:
+                mcgv.move('right')
+            elif event.key == K_LEFT:
+                mcgv.move('left')
+            elif event.key == K_UP:
+                mcgv.move('up')
+            elif event.key == K_DOWN:
+                mcgv.move('down')
+
+    # Displays MacGyver at the new coordinates
+    gameWindow.blit(background, (0, 0))
+    maze.display(gameWindow)
+    gameWindow.blit(mcgv.image, (mcgv.x_pos, mcgv.y_pos))
+
+    # Draws the randomly generated items on the board
+    ether.draw(gameWindow, BOTTLE_IMG)
+    needle.draw(gameWindow, NEEDLE_IMG)
+    tube.draw(gameWindow, TUBE_IMG)
+
+    pygame.display.flip()
+
+    # Condition for MacGyver to end the game if reaching the Guardian (g)
+    # TODO: to be handled differently once tool pick up method is implemented
+    if maze.structure[mcgv.square_y][mcgv.square_x] == 'g':
+        IS_GAME_OVER = True
          

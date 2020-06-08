@@ -14,9 +14,8 @@ class Maze:
         self.structure = 0
 
     def generate(self):
-        """ Method handling the creation of the level
-        based on the map file provided
-        It creates the map based on the list provided"""
+        """ Method handling the creation of the maze
+        based on the map file provided"""
         # File opening
         with open(self.file) as file:
             maze_structure = []
@@ -27,11 +26,11 @@ class Maze:
                 for sprite in line:
                     # We ignore the end of line sprites
                     if sprite != '\n':
-                        # If not end of line we add the sprite to the line
+                        # we keep adding the sprits to the line until we reach the end
                         maze_line.append(sprite)
-                # We then add the line to the level list level_structure
+                # Then the line is added to the maze_structure
                 maze_structure.append(maze_line)
-            # We save the level_structure
+            # We save the maze_structure
             self.structure = maze_structure
 
     def display(self, window):
@@ -53,11 +52,12 @@ class Maze:
                 # Real time position calculation
                 x_pos = square_num * SPRITES_SIZE
                 y_pos = line_num * SPRITES_SIZE
+                # Here we use pygame blit to display walls, start or end sprites
                 if sprite == 'w':
                     window.blit(wall, (x_pos, y_pos))
                 elif sprite == 's':
                     window.blit(start, (x_pos, y_pos))
-                elif sprite == 'e':
+                elif sprite == 'g':
                     window.blit(end, (x_pos, y_pos))
                 square_num += 1
             line_num += 1
