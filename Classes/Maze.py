@@ -46,7 +46,7 @@ class Maze:
         bottle = pygame.image.load(BOTTLE_IMG).convert_alpha()
         needle = pygame.image.load(NEEDLE_IMG).convert_alpha()
         tube = pygame.image.load(TUBE_IMG).convert_alpha()
-        
+
 
         # Running through the level list
         line_num = 0

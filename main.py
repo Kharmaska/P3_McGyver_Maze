@@ -87,10 +87,10 @@ tube.randomposition('t')
 mcgv = Player(maze)
 mcgv.draw(gameWindow, MACGYVER_IMG)
 
- # Draws the randomly generated items on the board
-ether.draw(gameWindow, BOTTLE_IMG)
-needle.draw(gameWindow, NEEDLE_IMG)
-tube.draw(gameWindow, TUBE_IMG)
+#  # Draws the randomly generated items on the board
+# ether.draw(gameWindow, BOTTLE_IMG)
+# needle.draw(gameWindow, NEEDLE_IMG)
+# tube.draw(gameWindow, TUBE_IMG)
 
 pygame.display.flip()
 
