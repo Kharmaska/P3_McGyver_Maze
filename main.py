@@ -12,10 +12,20 @@ before facing the guardian, you lose!
 
 # Libraries imports
 import pygame
-from pygame.locals import *
+from pygame.locals import K_ESCAPE, K_RIGHT, K_LEFT, K_UP, K_DOWN, KEYDOWN, QUIT
 
 # Local imports
-from constants import *
+from constants import (
+    WINDOW_SIZE,
+    ICON_IMAGE,
+    WINDOW_TITLE,
+    BOTTLE_IMG,
+    NEEDLE_IMG,
+    TUBE_IMG,
+    BACKGROUND_IMG,
+    MACGYVER_IMG,
+    WHITE_COLOR
+)
 from classes.object import GameObject
 from classes.maze import Maze
 from classes.player import Player
@@ -24,8 +34,13 @@ from classes.player import Player
 # We initialize the pygame module
 pygame.init()
 
-# Pygame game window creation as a square of 750 px in order to have 15 squares of 50px per line
-gameWindow = pygame.display.set_mode((WINDOW_SIZE, WINDOW_SIZE))
+# initialization of characters font used for the in-game texts
+pygame.font.init()
+font = pygame.font.SysFont('arial', 20)
+
+# Pygame game window creation as a square of 600 px in order to have 15 squares of 40 px per line
+# also adding 300 more pixels in order to display inventory and game texts
+gameWindow = pygame.display.set_mode((WINDOW_SIZE + 300, WINDOW_SIZE))
 
 # Setting up the game icon
 gameIcon = pygame.image.load(ICON_IMAGE)
@@ -37,10 +52,13 @@ pygame.display.set_caption(WINDOW_TITLE)
 
 # Loads the background image and
 # Adds the background texture to our game window
-bg = pygame.image.load("assets/background.jpg").convert()
+bg = pygame.image.load(BACKGROUND_IMG).convert()
 background = pygame.transform.scale(bg, (WINDOW_SIZE, WINDOW_SIZE))
 gameWindow.blit(background, (0, 0))
 
+
+
+# updates the game display with pygame refresh method
 pygame.display.flip()
 
 # Used to verify that the game is not over for the game loop
@@ -75,6 +93,14 @@ pygame.display.flip()
 while not IS_GAME_OVER:
     # Refresh rate limitation
     pygame.time.Clock().tick(30)
+
+    # Renders the "rules" for the game
+    rules = font.render("Aidez MacGyver à passer le gardien", True, WHITE_COLOR)
+    gameWindow.blit(rules, (620, 30))
+
+    # Renders the text of the inventory
+    inventoryDisplay = font.render('Objets récupérés: ', True, WHITE_COLOR)
+    gameWindow.blit(inventoryDisplay, (620, 400))
 
 
     for event in pygame.event.get():

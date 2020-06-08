@@ -11,6 +11,7 @@ WINDOW_SIZE = NUMBER_OF_SPRITES * SPRITES_SIZE
 WINDOW_TITLE = "Impossible Maze Escape: MacGyver edition"
 ICON_IMAGE = "assets/MacGyver.png"
 HOME_IMG = "assets/home.jpg"
+WHITE_COLOR = (255, 255, 255)
 
 # Board images
 WALL_IMG = "assets/wall.png"

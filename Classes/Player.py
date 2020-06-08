@@ -5,7 +5,6 @@ It inherits its methods and arguments from the GameObject class
 
 # Libraries imports
 import pygame
-from pygame.locals import *
 
 # Local imports
 from constants import *
