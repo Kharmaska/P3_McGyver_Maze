@@ -75,17 +75,22 @@ ether = GameObject(BOTTLE_IMG, maze, 'b', 'bottle')
 ether.randomposition('b')
 
 # 2. Needle
-needle = GameObject(NEEDLE_IMG, maze, 'n', 'bottle')
+needle = GameObject(NEEDLE_IMG, maze, 'n', 'needle')
 needle.randomposition('n')
 
 # 3. Tube
-tube = GameObject(TUBE_IMG, maze, 't', 'bottle')
+tube = GameObject(TUBE_IMG, maze, 't', 'tube')
 tube.randomposition('t')
 
 
 # creates an instance of Player as MacGyver (mcgv)
 mcgv = Player(maze)
 mcgv.draw(gameWindow, MACGYVER_IMG)
+
+ # Draws the randomly generated items on the board
+ether.draw(gameWindow, BOTTLE_IMG)
+needle.draw(gameWindow, NEEDLE_IMG)
+tube.draw(gameWindow, TUBE_IMG)
 
 pygame.display.flip()
 
@@ -125,17 +130,14 @@ while not IS_GAME_OVER:
     maze.display(gameWindow)
     gameWindow.blit(mcgv.image, (mcgv.x_pos, mcgv.y_pos))
 
-    # Draws the randomly generated items on the board
-    ether.draw(gameWindow, BOTTLE_IMG)
-    needle.draw(gameWindow, NEEDLE_IMG)
-    tube.draw(gameWindow, TUBE_IMG)
+   
 
     pygame.display.flip()
 
     if maze.structure[mcgv.square_y][mcgv.square_x] == 'b':
         mcgv.getitem()
         maze.structure[mcgv.square_y][mcgv.square_x] = ''
-        background.blit(mcgv.image, (mcgv.x_pos, mcgv.y_pos))
+        gameWindow.blit(background, (mcgv.x_pos, mcgv.y_pos))
         print(mcgv.inventory)
         
 

@@ -43,6 +43,10 @@ class Maze:
         wall = pygame.image.load(WALL_IMG).convert()
         start = pygame.image.load(START_IMG).convert()
         end = pygame.image.load(GUARDIAN_IMG).convert_alpha()
+        bottle = pygame.image.load(BOTTLE_IMG).convert_alpha()
+        needle = pygame.image.load(NEEDLE_IMG).convert_alpha()
+        tube = pygame.image.load(TUBE_IMG).convert_alpha()
+        
 
         # Running through the level list
         line_num = 0
@@ -59,5 +63,11 @@ class Maze:
                     window.blit(start, (x_pos, y_pos))
                 elif sprite == 'g':
                     window.blit(end, (x_pos, y_pos))
+                elif sprite == 'n':
+                    window.blit(needle, (x_pos, y_pos))
+                elif sprite == 't':
+                    window.blit(tube, (x_pos, y_pos))
+                elif sprite == 'b':
+                    window.blit(bottle, (x_pos, y_pos))
                 square_num += 1
             line_num += 1
