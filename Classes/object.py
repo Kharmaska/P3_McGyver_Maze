@@ -30,7 +30,7 @@ class GameObject:
         count_max = 1
         count = 0
         # Loop checking if a random spot is free
-        # on the 15*15 squares map with the ' ' character
+        # on the 15*15 squares map with the ' ' characte r
         while count < count_max:
             self.square_x = random.randint(0, 14)
             self.square_y = random.randint(0, 14)

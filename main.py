@@ -84,14 +84,14 @@ tube.randomposition('t')
 
 
 # creates an instance of Player as MacGyver (mcgv)
-mcgv = Player(0, maze)
+mcgv = Player(maze)
 mcgv.draw(gameWindow, MACGYVER_IMG)
 
 pygame.display.flip()
 
  # Game loop
 while not IS_GAME_OVER:
-    # Refresh rate limitation
+    # Refresh rate
     pygame.time.Clock().tick(30)
 
     # Renders the "rules" for the game
@@ -99,7 +99,7 @@ while not IS_GAME_OVER:
     gameWindow.blit(rules, (620, 30))
 
     # Renders the text of the inventory
-    inventoryDisplay = font.render('Objets récupérés: ', True, WHITE_COLOR)
+    inventoryDisplay = font.render('Objets récupérés: ' + str(mcgv.inventory), True, WHITE_COLOR)
     gameWindow.blit(inventoryDisplay, (620, 400))
 
 
@@ -131,6 +131,13 @@ while not IS_GAME_OVER:
     tube.draw(gameWindow, TUBE_IMG)
 
     pygame.display.flip()
+
+    if maze.structure[mcgv.square_y][mcgv.square_x] == 'b':
+        mcgv.getitem()
+        maze.structure[mcgv.square_y][mcgv.square_x] = ''
+        background.blit(mcgv.image, (mcgv.x_pos, mcgv.y_pos))
+        print(mcgv.inventory)
+        
 
     # Condition for MacGyver to end the game if reaching the Guardian (g)
     # TODO: to be handled differently once tool pick up method is implemented

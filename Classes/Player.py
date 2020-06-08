@@ -14,11 +14,11 @@ class Player:
     This class will be responsible for the creation
     of the player's'character
     """
-    def __init__(self, inventory, maze):
+    def __init__(self, maze):
         """ This method initialize the player's inventory and position on the maze"""
         # Loads the character's inventory
         # TODO: Inventory class and items pick-up are still to be programmed
-        self.inventory = inventory
+        self.inventory = 0
         self.image = pygame.image.load(MACGYVER_IMG).convert_alpha()
         # Character's position on the grid and size (pixels)
         # TODO: to be improved to handle the 's' position on the maze.txt instead
@@ -76,6 +76,14 @@ class Player:
                     self.square_y += 1
                     # Calculation of the "Real" positioning in pixels
                     self.y_pos = self.square_y * SPRITES_SIZE
+
+    def getitem(self):
+        """
+        This method will be responsible for the game object colision and pick-up
+        """
+        self.inventory += 1
+        
+
 
     def draw(self, background, image_path):
         """ Mehtod responsible to draw the character on top of the game background"""
