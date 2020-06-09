@@ -1,14 +1,8 @@
-#!/usr/bin/python3
-# -*- coding: Utf-8 -*
+"""
+This module is responsible for the class that will handle
+the game mechanisms
+"""
 
-"""
-In this mini Python game, based on the Pygame library,
-you will have to recover the 3 items inside the maze
-so MacGyver can build an awesome weapon
-to defeat the guardian and escape the maze.
-In case an item would be missing
-before facing the guardian, you lose!
-"""
 
 # Libraries imports
 import pygame
@@ -38,8 +32,15 @@ from classes.object import GameObject
 from classes.maze import Maze
 from classes.player import Player
 
+
+class Game:
+    """
+    Class used to handle all the game logic
+    """
+
+def initialize(self):
 # We initialize the pygame module
-pygame.init()
+
 
 # initialization of characters font used for the in-game texts
 pygame.font.init()
@@ -161,4 +162,3 @@ while not IS_GAME_OVER:
             pygame.display.flip()
             pygame.time.delay(3500)
             IS_GAME_OVER = True
-         

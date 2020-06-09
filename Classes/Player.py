@@ -5,9 +5,20 @@ It inherits its methods and arguments from the GameObject class
 
 # Libraries imports
 import pygame
+from pygame.locals import (
+    K_LEFT,
+    K_UP,
+    K_DOWN,
+    K_RIGHT,
+    KEYDOWN,
+    )
 
 # Local imports
-from constants import *
+from constants import (
+    MACGYVER_IMG,
+    NUMBER_OF_SPRITES,
+    SPRITES_SIZE,    
+)
 
 class Player:
     """
@@ -29,11 +40,24 @@ class Player:
 
         self.maze = maze
 
+        for event in pygame.event.get():
+            # If the user quits, passes the IS_GAME_OVER to True
+            if event.type == KEYDOWN:
+                if event.key == K_RIGHT:
+                    self.move('right')
+                elif event.key == K_LEFT:
+                    self.move('left')
+                elif event.key == K_UP:
+                    self.move('up')
+                elif event.key == K_DOWN:
+                    self.move('down')
+
     def move(self, direction):
         """
         Method handling the character's directions,
         and also the colision with walls
         """
+
         # Move to the right
         if direction == 'right':
             if self.square_x < (NUMBER_OF_SPRITES -1):
@@ -76,6 +100,8 @@ class Player:
                     self.square_y += 1
                     # Calculation of the "Real" positioning in pixels
                     self.y_pos = self.square_y * SPRITES_SIZE
+
+
 
     def getitem(self):
         """

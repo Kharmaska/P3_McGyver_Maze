@@ -5,10 +5,9 @@ the randomly placed items on the map
 # Libraries imports
 import random
 import pygame
-from constants import *
 
 # local modules/packages imports
-
+from constants import SPRITES_SIZE
 
 class GameObject:
     """
@@ -24,10 +23,12 @@ class GameObject:
         self.x_pos = self.square_x * SPRITES_SIZE
         self.y_pos = self.square_y * SPRITES_SIZE
         self.itemname = itemname
+
     def randomposition(self, identifier):
         """ gives a random position on the map to the item created"""
         # Initialize a validation to make sure we only generate one of each item
         onmap = False
+
         # Loop checking if a random spot is free
         # on the 15*15 squares map with the ' ' character
         while not onmap:
@@ -40,8 +41,8 @@ class GameObject:
                 # then we exit the loop by moving the validation to True and making sure
                 # we do not exceed the maximum amount of 1 item
                 onmap = True
-        print('position de :' + identifier, self.square_x, self.square_y)
         return self.square_x, self.square_y
+
     def draw(self, background, image_path):
         """ Mehtod responsible to draw the game object on top of the game background"""
         self.itemname = pygame.image.load(image_path).convert_alpha()
