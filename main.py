@@ -130,7 +130,6 @@ while not IS_GAME_OVER:
     maze.display(gameWindow)
     gameWindow.blit(mcgv.image, (mcgv.x_pos, mcgv.y_pos))
 
-   
 
     pygame.display.flip()
 
@@ -139,7 +138,7 @@ while not IS_GAME_OVER:
         maze.structure[mcgv.square_y][mcgv.square_x] = ''
         gameWindow.blit(background, (mcgv.x_pos, mcgv.y_pos))
         print(mcgv.inventory)
-        
+
 
     # Condition for MacGyver to end the game if reaching the Guardian (g)
     # TODO: to be handled differently once tool pick up method is implemented

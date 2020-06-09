@@ -79,11 +79,9 @@ class Player:
 
     def getitem(self):
         """
-        This method will be responsible for the game object colision and pick-up
+        This method will be responsible for the game object pick-up
         """
         self.inventory += 1
-        
-
 
     def draw(self, background, image_path):
         """ Mehtod responsible to draw the character on top of the game background"""
