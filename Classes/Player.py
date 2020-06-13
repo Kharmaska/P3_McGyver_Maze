@@ -5,19 +5,13 @@ It inherits its methods and arguments from the GameObject class
 
 # Libraries imports
 import pygame
-from pygame.locals import (
-    K_LEFT,
-    K_UP,
-    K_DOWN,
-    K_RIGHT,
-    KEYDOWN,
-    )
+
 
 # Local imports
 from constants import (
     MACGYVER_IMG,
     NUMBER_OF_SPRITES,
-    SPRITES_SIZE,    
+    SPRITES_SIZE
 )
 
 class Player:
@@ -28,29 +22,16 @@ class Player:
     def __init__(self, maze):
         """ This method initialize the player's inventory and position on the maze"""
         # Loads the character's inventory
-        # TODO: Inventory class and items pick-up are still to be programmed
         self.inventory = 0
-        self.image = pygame.image.load(MACGYVER_IMG).convert_alpha()
+
         # Character's position on the grid and size (pixels)
-        # TODO: to be improved to handle the 's' position on the maze.txt instead
+        self.image = pygame.image.load(MACGYVER_IMG).convert_alpha()
         self.square_x = 1
         self.square_y = 1
         self.x_pos = 40
         self.y_pos = 40
 
         self.maze = maze
-
-        for event in pygame.event.get():
-            # If the user quits, passes the IS_GAME_OVER to True
-            if event.type == KEYDOWN:
-                if event.key == K_RIGHT:
-                    self.move('right')
-                elif event.key == K_LEFT:
-                    self.move('left')
-                elif event.key == K_UP:
-                    self.move('up')
-                elif event.key == K_DOWN:
-                    self.move('down')
 
     def move(self, direction):
         """
@@ -100,8 +81,6 @@ class Player:
                     self.square_y += 1
                     # Calculation of the "Real" positioning in pixels
                     self.y_pos = self.square_y * SPRITES_SIZE
-
-
 
     def getitem(self):
         """

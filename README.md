@@ -71,6 +71,10 @@ if you are on Windows's PowerShell:
 
 ```powershell
  ./env/scripts/activate.ps1
+
+ OR if you created a 'venv' folder and not an 'env' folder
+
+ ./venv/scripts/activate.ps1
 ```
 
 #### 3.2 Installing dependencies

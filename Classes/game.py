@@ -26,7 +26,7 @@ from constants import (
     TUBE_IMG,
     BACKGROUND_IMG,
     MACGYVER_IMG,
-    WHITE_COLOR
+    WHITE_COLOR,
 )
 from classes.object import GameObject
 from classes.maze import Maze
@@ -37,6 +37,10 @@ class Game:
     """
     Class used to handle all the game logic
     """
+    def __init__(self):
+
+        self.maze = Maze('maze.txt')
+        self.game_icon = pygame.image.load(ICON_IMAGE)
 
     def start_new_game(self):
         """
@@ -48,8 +52,7 @@ class Game:
         game_window = pygame.display.set_mode((WINDOW_SIZE + 300, WINDOW_SIZE))
 
         # Setting up the game icon
-        game_icon = pygame.image.load(ICON_IMAGE)
-        pygame.display.set_icon(game_icon)
+        pygame.display.set_icon(self.game_icon)
 
         # Setting the title of the game on the Pygame window
         pygame.display.set_caption(WINDOW_TITLE)
@@ -62,20 +65,19 @@ class Game:
         game_window.blit(background, (0, 0))
 
         # Maze generation
-        maze = Maze('maze.txt')
-        maze.generate()
-        maze.display(game_window)
+        self.maze.generate()
+        self.maze.display(game_window)
 
         # Items generation on the board
         # 1. Ether
-        GameObject(BOTTLE_IMG, maze, 'b', 'bottle')
+        GameObject(BOTTLE_IMG, self.maze, 'b', 'bottle')
         # 2. Needle
-        GameObject(NEEDLE_IMG, maze, 'n', 'needle')
+        GameObject(NEEDLE_IMG, self.maze, 'n', 'needle')
         # 3. Tube
-        GameObject(TUBE_IMG, maze, 't', 'tube')
+        GameObject(TUBE_IMG, self.maze, 't', 'tube')
 
         # creates an instance of Player as MacGyver (mcgv)
-        mcgv = Player(maze)
+        mcgv = Player(self.maze)
         mcgv.draw(game_window, MACGYVER_IMG)
 
         # initialization of characters font used for the in-game texts
@@ -102,8 +104,6 @@ class Game:
             game_window.blit(background, (620, 400))
             game_window.blit(inventory_display, (620, 400))
 
-
-
             for event in pygame.event.get():
                 # If the user quits, passes the is_game_over to True
                 if event.type == QUIT:
@@ -111,7 +111,6 @@ class Game:
                 elif event.type == KEYDOWN:
                     if event.key == K_ESCAPE:
                         is_game_over = True
-
                     elif event.key == K_RIGHT:
                         mcgv.move('right')
                     elif event.key == K_LEFT:
@@ -123,21 +122,21 @@ class Game:
 
             # Displays MacGyver at the new coordinates
             game_window.blit(background, (0, 0))
-            maze.display(game_window)
+            self.maze.display(game_window)
             game_window.blit(mcgv.image, (mcgv.x_pos, mcgv.y_pos))
 
             pygame.display.flip()
 
-            if (maze.structure[mcgv.square_y][mcgv.square_x] == 'b') or (
-                    maze.structure[mcgv.square_y][mcgv.square_x] == 't'
+            if (self.maze.structure[mcgv.square_y][mcgv.square_x] == 'b') or (
+                    self.maze.structure[mcgv.square_y][mcgv.square_x] == 't'
                         ) or (
-                            maze.structure[mcgv.square_y][mcgv.square_x] == 'n'):
+                            self.maze.structure[mcgv.square_y][mcgv.square_x] == 'n'):
                 mcgv.getitem()
-                maze.structure[mcgv.square_y][mcgv.square_x] = ''
+                self.maze.structure[mcgv.square_y][mcgv.square_x] = ''
                 game_window.blit(background, (mcgv.x_pos, mcgv.y_pos))
 
             # Condition for MacGyver to end the game if reaching the Guardian (g)
-            if maze.structure[mcgv.square_y][mcgv.square_x] == 'g':
+            if self.maze.structure[mcgv.square_y][mcgv.square_x] == 'g':
                 # win condition with a time delay before the game exits
                 if mcgv.inventory == 3:
                     won = font.render(
