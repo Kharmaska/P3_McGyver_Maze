@@ -99,6 +99,9 @@ It should open the game GUI and display the following screen:
 
 ![Game Window MacGyver](/assets/gameCapture.JPG "Game Window MacGyver")
 
+>In order to move MacGyver, you will need to use the **arrow keys** on your keyboard.
+Note that you can keep a key pressed down in order to move multipletimes in a given direction.
+
 If you manage to collect the 3 items that MaCGyver needs to defeat the guardian you will get the following screen:
 
 ![Game Window MacGyver Won](/assets/gameCaptureWon.JPG "Game Window MacGyver")
