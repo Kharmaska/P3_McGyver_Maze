@@ -117,3 +117,6 @@ If you manage to collect the 3 items that MaCGyver needs to defeat the guardian 
 Otherwise the guardian will kill you and you will have to restart the game with the command above.
 
 ![Game Window MacGyver Lost](/assets/gameCaptureLost.JPG "Game Window MacGyver")
+
+#### 5 P.S
+>The assets used for this mini game are under a WTFPL license from http://jessefreeman.com/
