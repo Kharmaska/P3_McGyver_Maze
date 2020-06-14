@@ -101,8 +101,8 @@ It should open the game GUI and display the following screen:
 
 If you manage to collect the 3 items that MaCGyver needs to defeat the guardian you will get the following screen:
 
-![Game Window MacGyver](/assets/gameCaptureWon.jpg?raw=true "Game Window MacGyver")
+![Game Window MacGyver Won](/assets/gameCaptureWon.jpg?raw=true "Game Window MacGyver")
 
 Otherwise the guardian will kill you and you will have to restart the game with the command above.
 
-![Game Window MacGyver](/assets/gameCaptureLost.jpg?raw=true "Game Window MacGyver")
+![Game Window MacGyver Lost](/assets/gameCaptureLost.jpg?raw=true "Game Window MacGyver")
