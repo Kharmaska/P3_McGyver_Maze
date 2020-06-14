@@ -21,6 +21,7 @@ class Player:
     """
     def __init__(self, maze):
         """ This method initialize the player's inventory and position on the maze"""
+        pygame.init()
         # Loads the character's inventory
         self.inventory = 0
 

@@ -17,3 +17,4 @@ from classes.game import Game
 
 new_game = Game()
 new_game.start_new_game()
+new_game.endgame()
