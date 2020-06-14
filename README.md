@@ -97,12 +97,12 @@ python main.py
 
 It should open the game GUI and display the following screen:
 
-![Game Window MacGyver](/assets/gameCapture.jpg?raw=true "Game Window MacGyver")
+![Game Window MacGyver](/assets/gameCapture.JPG "Game Window MacGyver")
 
 If you manage to collect the 3 items that MaCGyver needs to defeat the guardian you will get the following screen:
 
-![Game Window MacGyver Won](/assets/gameCaptureWon.jpg?raw=true "Game Window MacGyver")
+![Game Window MacGyver Won](/assets/gameCaptureWon.JPG "Game Window MacGyver")
 
 Otherwise the guardian will kill you and you will have to restart the game with the command above.
 
-![Game Window MacGyver Lost](/assets/gameCaptureLost.jpg?raw=true "Game Window MacGyver")
+![Game Window MacGyver Lost](/assets/gameCaptureLost.JPG "Game Window MacGyver")
