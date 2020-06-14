@@ -87,7 +87,9 @@ In order to install the required dependencies you will have to enter the followi
 
  In case you would like to modify the version of any of the dependencies, you can do so by modifying the requirements.txt file and then by running again the command above
 
-### 4. Launching the game
+### 4. Launching and playing the game
+
+#### 4.1 Launching the game
 
 In your bash or powershell console run the following command:
 
@@ -99,12 +101,18 @@ It should open the game GUI and display the following screen:
 
 ![Game Window MacGyver](/assets/gameCapture.JPG "Game Window MacGyver")
 
+#### 4.2 Playing the game
+
 >In order to move MacGyver, you will need to use the **arrow keys** on your keyboard.
 Note that you can keep a key pressed down in order to move multipletimes in a given direction.
+
+##### 4.2.a Winning the game
 
 If you manage to collect the 3 items that MaCGyver needs to defeat the guardian you will get the following screen:
 
 ![Game Window MacGyver Won](/assets/gameCaptureWon.JPG "Game Window MacGyver")
+
+##### 4.2.b Losing the game
 
 Otherwise the guardian will kill you and you will have to restart the game with the command above.
 
