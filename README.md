@@ -86,3 +86,23 @@ In order to install the required dependencies you will have to enter the followi
  ```
 
  In case you would like to modify the version of any of the dependencies, you can do so by modifying the requirements.txt file and then by running again the command above
+
+### 4. Launching the game
+
+In your bash or powershell console run the following command:
+
+```bash
+python main.py
+```
+
+It should open the game GUI and display the following screen:
+
+![Game Window MacGyver](/assets/gameCapture.jpg?raw=true "Game Window MacGyver")
+
+If you manage to collect the 3 items that MaCGyver needs to defeat the guardian you will get the following screen:
+
+![Game Window MacGyver](/assets/gameCaptureWon.jpg?raw=true "Game Window MacGyver")
+
+Otherwise the guardian will kill you and you will have to restart the game with the command above.
+
+![Game Window MacGyver](/assets/gameCaptureLost.jpg?raw=true "Game Window MacGyver")
