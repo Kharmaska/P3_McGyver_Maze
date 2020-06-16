@@ -9,12 +9,10 @@ In case an item would be missing
 before facing the guardian, you lose!
 """
 
-
 # Local imports
 from classes.game import Game
 
-# We initialize the pygame module
-
+# We initialize the game module and the logic for the win/loss conditions
 new_game = Game()
 new_game.start_new_game()
 new_game.endgame()

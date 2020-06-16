@@ -18,7 +18,7 @@ class Maze:
     """ Class handling the creation of a game maze"""
     def __init__(self, file):
         self.file = file
-        self.structure = 0
+        self.structure = []
 
     def generate(self):
         """ Method handling the creation of the maze
@@ -54,7 +54,6 @@ class Maze:
         needle = pygame.image.load(NEEDLE_IMG).convert_alpha()
         tube = pygame.image.load(TUBE_IMG).convert_alpha()
 
-
         # Running through the level list
         line_num = 0
         for line in self.structure:
@@ -64,17 +63,17 @@ class Maze:
                 x_pos = square_num * SPRITES_SIZE
                 y_pos = line_num * SPRITES_SIZE
                 # Here we use pygame blit to display items, walls, start or end sprites
-                if sprite == 'w': # walls
+                if sprite == 'w':  # walls
                     window.blit(wall, (x_pos, y_pos))
-                elif sprite == 's': # start tile
+                elif sprite == 's':  # start tile
                     window.blit(start, (x_pos, y_pos))
-                elif sprite == 'g': # end/guardian tile
+                elif sprite == 'g':  # end/guardian tile
                     window.blit(end, (x_pos, y_pos))
-                elif sprite == 'n': # needle tile
+                elif sprite == 'n':  # needle tile
                     window.blit(needle, (x_pos, y_pos))
-                elif sprite == 't': # tube tile
+                elif sprite == 't':  # tube tile
                     window.blit(tube, (x_pos, y_pos))
-                elif sprite == 'b': # bottle tile
+                elif sprite == 'b':  # bottle tile
                     window.blit(bottle, (x_pos, y_pos))
                 square_num += 1
             line_num += 1

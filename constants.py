@@ -18,8 +18,6 @@ WALL_IMG = "assets/wall.png"
 START_IMG = "assets/start.png"
 BACKGROUND_IMG = "assets/background.jpg"
 
-
-
 # Characters and items images
 GUARDIAN_IMG = "assets/guardian.png"
 MACGYVER_IMG = "assets/MacGyver.png"

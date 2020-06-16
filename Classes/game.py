@@ -92,9 +92,6 @@ class Game:
 
         # Game loop
         while not self.is_game_over:
-            # Refresh rate
-            pygame.time.Clock().tick(30)
-
             # Renders the text of the inventory
             inventory_display = font.render(
                 'Objets récupérés: ' + str(self.mcgv.inventory), True, WHITE_COLOR
@@ -122,16 +119,15 @@ class Game:
             self.game_window.blit(self.background, (0, 0))
             self.maze.display(self.game_window)
             self.game_window.blit(self.mcgv.image, (self.mcgv.x_pos, self.mcgv.y_pos))
-
+            # updates the game display with pygame refresh method
             pygame.display.flip()
 
             # Condition to handle the 'colision' with one of the items to pick-up
             # if MacGyver encounters one of the items identifier
             # it adds +1 to the inventory and removes the identifier on the map
             if (self.maze.structure[self.mcgv.square_y][self.mcgv.square_x] == 'b') or (
-                    self.maze.structure[self.mcgv.square_y][self.mcgv.square_x] == 't'
-                        ) or (
-                            self.maze.structure[self.mcgv.square_y][self.mcgv.square_x] == 'n'):
+                    self.maze.structure[self.mcgv.square_y][self.mcgv.square_x] == 't') or (
+                        self.maze.structure[self.mcgv.square_y][self.mcgv.square_x] == 'n'):
                 self.mcgv.getitem()
                 self.maze.structure[self.mcgv.square_y][self.mcgv.square_x] = ''
                 self.game_window.blit(self.background, (self.mcgv.x_pos, self.mcgv.y_pos))
@@ -146,7 +142,7 @@ class Game:
         when reaching the Guardian identifier on the map
         """
         font = pygame.font.SysFont('arial', 30)
-        while self.end_of_maze:        
+        while self.end_of_maze:
             # win condition with a time delay before the game exits Python
             if self.mcgv.inventory == 3:
                 won = font.render(
